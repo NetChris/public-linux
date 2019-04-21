@@ -19,4 +19,10 @@ lsblk -o +UUID
 #   └─vg01-consul01  253:4    0    10G  0 lvm                               4a51a170-61ea-4431-b340-92b4ef188392
 #
 # Then add a line like so to /etc/fstab
-# UUIS=3604e654-f872-4dba-9f1e-70bd7c5d972d /netchris/fsmounts/widget01 ext4 defaults 0 0
+# UUID=3604e654-f872-4dba-9f1e-70bd7c5d972d /netchris/fsmounts/widget01 ext4 defaults 0 0
+
+# Create, then set minimial permissions on the mount point
+sudo mkdir -p /netchris/fsmounts/widget01 && sudo chmod 0000 /netchris/fsmounts/widget01
+
+# Then mount
+sudo mount /netchris/fsmounts/widget01
