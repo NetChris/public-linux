@@ -10,9 +10,8 @@ else
   echo Pulling the contents of https://gitlab.com/$GITLAB_USERNAME.keys to ~/.ssh/authorized_keys
 fi
 
-exit 0
-
 mkdir -p ~/.ssh
+chmod 700 ~/.ssh
 
 if ! [[ -f ~/.ssh/authorized_keys ]]; then
   echo "Creating new ~/.ssh/authorized_keys"
