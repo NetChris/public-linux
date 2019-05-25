@@ -4,7 +4,7 @@ sudo mkfs -t ext4 /dev/vg01/widget01
 
 # This usually then entails creating a permanent mount point
 # Get the UUID using:
-sudo lvdisplay vg01/widget01
+blkid
 
 # Example output:
 # chris@nuc-20190313:~$ lsblk -o +UUID
