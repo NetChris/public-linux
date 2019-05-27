@@ -3,12 +3,11 @@
 # An existing volume group is assumed.  root required.
 # Usage:
 # setup-lv-fsmount.sh fs_mount_name volume_group_name size_in_123G_format
-# Example (creates /netchris/fsmounts/$fs_mount_name on vg02 with a size of 200 GB):
-# sudo SCRIPT.sh vg02 200G
+# Example (creates /netchris/fsmounts/docker01 as a LV on VG vg02 with a size of 200 GB):
+# sudo setup-lv-fsmount.sh docker01 vg02 200G
 #
 # To run from curl (WATCH THE ARGUMENTS!):
 # curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/bash/scripts/setup-lv-fsmount.sh' | sudo bash -s -- fs_mount_name volume_group_name size_in_123G_format
-
 
 die () {
     echo >&2 "$@"
