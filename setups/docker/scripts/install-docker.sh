@@ -70,7 +70,7 @@ curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/etc
 echo Reloading service units ...
 systemctl daemon-reload
 
-CALLING_USER=$(who am i | awk '{print $1}')
+CALLING_USER=$(logname)
 echo Adding calling user \"$CALLING_USER\" to \"docker\" group ...
 sudo usermod -a -G docker $CALLING_USER
 
