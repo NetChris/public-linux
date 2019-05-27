@@ -67,6 +67,9 @@ echo Updating Docker service registration override \("/etc/systemd/system/docker
 curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/etc/systemd/system/docker.service.d/override.conf' \
   -o /etc/systemd/system/docker.service.d/override.conf
 
+echo Reloading service units ...
+systemctl daemon-reload
+
 echo Adding chris to docker group
 sudo usermod -a -G docker chris
 
