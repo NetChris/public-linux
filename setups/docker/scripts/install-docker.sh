@@ -16,10 +16,7 @@ die () {
 
 MOUNT_POINT=/netchris/fsmounts/docker01
 
-[ -d $MOUNT_POINT ] || die "\"$MOUNT_POINT\" does not exist in the filesystem"
-
-# TODO - Remove once the above works
-exit
+[ -d $MOUNT_POINT ] || die "\"$MOUNT_POINT\" does not exist in the filesystem.  This is required before we install Docker."
 
 echo Installing Docker ...
 
