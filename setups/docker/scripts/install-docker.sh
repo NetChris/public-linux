@@ -63,7 +63,7 @@ curl -sSL 'https://gitlab.com/NetChris/public/key-certificates/raw/master/docker
 curl -sSL 'https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/wildcard.loc.network/server-cert.pem' \
   -o /netchris/fsmounts/docker01/certs/server-cert.pem
 
-echo Updating Docker service registration override ("/etc/systemd/system/docker.service.d/override.conf") ...
+echo Updating Docker service registration override \("/etc/systemd/system/docker.service.d/override.conf"\) ...
 curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/etc/systemd/system/docker.service.d/override.conf' \
   -o /etc/systemd/system/docker.service.d/override.conf
 
