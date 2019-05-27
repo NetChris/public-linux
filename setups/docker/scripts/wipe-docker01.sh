@@ -17,12 +17,12 @@ die () {
 
 MOUNT_POINT=/netchris/fsmounts/docker01
 
-[ -f $MOUNT_POINT ] || die "$MOUNT_POINT does not exist in the filesystem"
+[ -f $MOUNT_POINT ] || die "\"$MOUNT_POINT\" does not exist in the filesystem"
 
 echo Getting LV path for mount point "$MOUNT_POINT" ...
 LV_PATH=`df | grep "$MOUNT_POINT" | awk '{print $1}'`
 
-[ -f $LV_PATH ] || die "Could not find LV path for mount point $MOUNT_POINT"
+[ -f $LV_PATH ] || die "Could not find LV path for mount point \"$MOUNT_POINT\""
 
 echo Found LV path: "$LV_PATH"
 
