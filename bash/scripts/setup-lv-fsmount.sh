@@ -61,6 +61,9 @@ sed -i "/$MOUNT_POINT_ESCAPED/d" /etc/fstab
 echo Adding new partition to /etc/fstab
 echo "UUID=$UUID $MOUNT_POINT ext4 defaults 0 0" >> /etc/fstab
 
+echo Reloading service units ...
+systemctl daemon-reload
+
 echo Mounting "$MOUNT_POINT" ...
 mount $MOUNT_POINT
 
