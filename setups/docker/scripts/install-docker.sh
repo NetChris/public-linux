@@ -5,7 +5,7 @@
 # - Existence of "/netchris/fsmounts/docker01"
 #
 # To run from curl:
-# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/scripts/install-docker.sh' | sudo bash
+# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/scripts/install-docker.sh' | sudo -E bash
 
 die () {
     echo >&2 "$@"
@@ -82,3 +82,4 @@ echo "  3. Verify that Docker data directory is filled in: \"sudo ls -lac /netch
 echo "  4. Verify remote Docker connectivity.  From a remote machine:"
 echo "    docker --tlsverify --tlscacert=/path/to/ca-cert.pem --tlscert=/path/to/client-cert.pem \\"
 echo "      --tlskey=/path/to/client-key.pem -H=\"THIS_MACHINE.servers.dhcp.loc.network:2376\" info"
+echo User: $USER
