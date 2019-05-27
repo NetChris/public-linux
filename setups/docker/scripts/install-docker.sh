@@ -16,7 +16,7 @@ die () {
 
 MOUNT_POINT=/netchris/fsmounts/docker01
 
-[ ! -f $MOUNT_POINT ] || die "$MOUNT_POINT does not exist"
+[ ! -f $MOUNT_POINT ] || die "\"$MOUNT_POINT\" does not exist in the filesystem"
 
 exit
 
