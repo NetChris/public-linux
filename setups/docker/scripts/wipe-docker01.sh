@@ -22,7 +22,7 @@ MOUNT_POINT=/netchris/fsmounts/docker01
 echo Getting LV path for mount point "$MOUNT_POINT" ...
 LV_PATH=`df | grep "$MOUNT_POINT" | awk '{print $1}'`
 
-[ -z ${ LV_PATH + x } ] && die "Could not find LV path for mount point $MOUNT_POINT"
+[ ! -z "${ LV_PATH + x }" ] || die "Could not find LV path for mount point $MOUNT_POINT"
 
 if mount | grep $MOUNT_POINT > /dev/null; then
   echo Unmounting $MOUNT_POINT
