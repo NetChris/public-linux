@@ -17,7 +17,12 @@ die () {
 
 MOUNT_POINT=/netchris/fsmounts/docker01
 
-[ ! -f $MOUNT_POINT ] || die "$MOUNT_POINT does not exist"
+[ ! -f $MOUNT_POINT ] || die "$MOUNT_POINT does not exist in the filesystem"
+
+echo Getting LV path for mount point "$MOUNT_POINT" ...
+LV_PATH=`df | grep "$MOUNT_POINT" | awk '{print $1}'`
+
+[ -z "$LV_PATH" ] || die "Could not find LV path for mount point $MOUNT_POINT"
 
 if mount | grep $MOUNT_POINT > /dev/null; then
   echo Unmounting $MOUNT_POINT
@@ -34,3 +39,7 @@ cp /etc/fstab $ETC_FSTAB_BACKUP
 echo Removing "$MOUNT_POINT" mount point from /etc/fstab if it exists ...
 MOUNT_POINT_ESCAPED=${MOUNT_POINT//\//\\/}
 sed -i "/$MOUNT_POINT_ESCAPED/d" /etc/fstab
+
+echo Found LV path: "$LV_PATH"
+
+lvremove $LV_PATH -y
