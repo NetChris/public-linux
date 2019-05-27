@@ -20,12 +20,17 @@ MOUNT_POINT=/netchris/fsmounts/docker01
 [ ! -f $MOUNT_POINT ] || die "$MOUNT_POINT does not exist"
 
 if mount | grep $MOUNT_POINT > /dev/null; then
-    echo "yay"
-else
-    echo "nay"
+  echo Unmounting $MOUNT_POINT
+  mount $MOUNT_POINT
 fi
 
-exit 
+DATE_STAMP=$(date '+%Y%m%d%H%M%S')
+BACKUP_EXTENSION="orig.$DATE_STAMP"
 
-echo Unmounting $MOUNT_POINT
-mount $MOUNT_POINT
+ETC_FSTAB_BACKUP="/etc/fstab.before-wipe-docker01.$BACKUP_EXTENSION"
+echo Backing up /etc/fstab to "$ETC_FSTAB_BACKUP"
+cp /etc/fstab $ETC_FSTAB_BACKUP
+
+echo Removing "$MOUNT_POINT" mount point from /etc/fstab if it exists ...
+MOUNT_POINT_ESCAPED=${MOUNT_POINT//\//\\/}
+sed -i "/$MOUNT_POINT_ESCAPED/d" /etc/fstab
