@@ -21,7 +21,7 @@ die () {
 
 DATE_STAMP=$(date '+%Y%m%d%H%M%S')
 BACKUP_EXTENSION="orig.$DATE_STAMP"
-FS_MOUNT_NAME=$2
+FS_MOUNT_NAME=$1
 VG=$2
 VG_SIZE=$3
 echo Submitted "$VG" for volume group name
