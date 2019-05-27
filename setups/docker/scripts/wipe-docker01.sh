@@ -43,3 +43,5 @@ sed -i "/$MOUNT_POINT_ESCAPED/d" /etc/fstab
 echo Found LV path: "$LV_PATH"
 
 lvremove $LV_PATH -y
+
+rm -r $MOUNT_POINT
