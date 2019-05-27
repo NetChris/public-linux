@@ -66,6 +66,9 @@ curl -sSL https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/
 echo Adding chris to docker group
 sudo usermod -a -G docker chris
 
+# TODO - Verify mounted path?
+# TODO - Expose port
+
 echo You will need to finish the rest:
 echo "  1. Copy/paste the Docker wildcard.loc.network server key to \"/netchris/fsmounts/docker01/certs/keys/server-key.pem\""
 echo "  2. Start Docker - sudo service docker start"

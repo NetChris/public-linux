@@ -44,4 +44,9 @@ sed -i "/$MOUNT_POINT_ESCAPED/d" /etc/fstab
 
 lvremove $LV_PATH -y
 
+# See https://github.com/systemd/systemd/issues/1741
+echo Running "systemctl daemon-reload" due to https://github.com/systemd/systemd/issues/1741
+systemctl daemon-reload
+
+echo Removing "$MOUNT_POINT" from filesystem ...
 rm -r $MOUNT_POINT
