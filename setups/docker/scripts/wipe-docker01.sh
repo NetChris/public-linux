@@ -21,7 +21,7 @@ MOUNT_POINT=/netchris/fsmounts/docker01
 
 if mount | grep $MOUNT_POINT > /dev/null; then
   echo Unmounting $MOUNT_POINT
-  mount $MOUNT_POINT
+  umount $MOUNT_POINT
 fi
 
 DATE_STAMP=$(date '+%Y%m%d%H%M%S')
