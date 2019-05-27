@@ -5,7 +5,7 @@
 # - Existence of "/netchris/fsmounts/docker01"
 #
 # To run from curl:
-# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/scripts/install-docker.sh' | sudo -E bash
+# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/scripts/install-docker.sh' | sudo bash
 
 die () {
     echo >&2 "$@"
