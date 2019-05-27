@@ -32,7 +32,7 @@ echo Installing required support tools ...
 apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
 echo Adding Docker official GPG key ...
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' | sudo apt-key add -
 
 echo Setting up Docker APT repository
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -58,19 +58,22 @@ mkdir -p -m 755 /netchris/fsmounts/docker01/certs
 mkdir -p -m 750 /netchris/fsmounts/docker01/certs/keys
 
 echo Pulling down certificates ...
-curl -sSL https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/ca-cert-15909179367545147508.pem \
+curl -sSL 'https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/ca-cert-15909179367545147508.pem' \
   -o /netchris/fsmounts/docker01/certs/ca-cert.pem
-curl -sSL https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/wildcard.loc.network/server-cert.pem \
+curl -sSL 'https://gitlab.com/NetChris/public/key-certificates/raw/master/docker/wildcard.loc.network/server-cert.pem' \
   -o /netchris/fsmounts/docker01/certs/server-cert.pem
+
+echo Updating Docker service registration override ("/etc/systemd/system/docker.service.d/override.conf") ...
+curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/etc/systemd/system/docker.service.d/override.conf' \
+  -o /etc/systemd/system/docker.service.d/override.conf
 
 echo Adding chris to docker group
 sudo usermod -a -G docker chris
 
 # TODO - Verify mounted path?
-# TODO - Expose port
 
 echo You will need to finish the rest:
-echo "  1. Copy/paste the Docker wildcard.loc.network server key to \"/netchris/fsmounts/docker01/certs/keys/server-key.pem\""
+echo "  1. Pull down Docker wildcard.loc.network server key to \"/netchris/fsmounts/docker01/certs/keys/server-key.pem\""
 echo "  2. Start Docker - sudo service docker start"
 echo "  3. Verify that Docker data directory is filled in: \"sudo ls -lac /netchris/fsmounts/docker01/docker\""
 echo "  4. Verify remote Docker connectivity.  From a remote machine:"
