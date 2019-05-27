@@ -70,10 +70,9 @@ curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/setups/docker/etc
 echo Reloading service units ...
 systemctl daemon-reload
 
-echo Adding chris to docker group
-sudo usermod -a -G docker chris
-
-# TODO - Verify mounted path?
+CALLING_USER=$(sudo who am i | awk '{print $1}')
+echo Adding calling user \"$CALLING_USER\" to \"docker\" group ...
+sudo usermod -a -G docker $CALLING_USER
 
 echo You will need to finish the rest:
 echo "  1. Pull down Docker wildcard.loc.network server key to \"/netchris/fsmounts/docker01/certs/keys/server-key.pem\""
@@ -82,4 +81,4 @@ echo "  3. Verify that Docker data directory is filled in: \"sudo ls -lac /netch
 echo "  4. Verify remote Docker connectivity.  From a remote machine:"
 echo "    docker --tlsverify --tlscacert=/path/to/ca-cert.pem --tlscert=/path/to/client-cert.pem \\"
 echo "      --tlskey=/path/to/client-key.pem -H=\"THIS_MACHINE.servers.dhcp.loc.network:2376\" info"
-echo User: $USER
+echo "  5. Unless you are actually running as root, you will need to log out and log back in for the ability to run docker without sudo."
