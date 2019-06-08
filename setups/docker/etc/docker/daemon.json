@@ -1,6 +1,11 @@
 {
   "storage-driver": "overlay2",
   "data-root":      "/netchris/fsmounts/docker01/docker",
+
+  "registry-mirrors": [
+    "https://docker-mirror.loc.network"
+  ],
+
   "tlsverify":      true,
   "tlscacert":      "/netchris/fsmounts/docker01/certs/ca-cert.pem",
   "tlscert":        "/netchris/fsmounts/docker01/certs/server-cert.pem",
