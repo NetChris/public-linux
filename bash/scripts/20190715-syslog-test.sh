@@ -1,5 +1,7 @@
 #!/bin/bash
 # 2019-07-15 - Reinstall syslog configuration, test-swarm
+# curl -sSL https://gitlab.com/NetChris/public/linux/raw/master/bash/scripts/20190715-syslog-test.sh | bash -s
+
 sudo rm -f /etc/rsyslog.d/60-*.conf
 sudo rm -f /etc/rsyslog.d/70-*.conf
 sudo curl -sSL \
