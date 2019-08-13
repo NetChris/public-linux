@@ -1,5 +1,6 @@
 # Storage network - DHCP, but lower routing preference
 # enp1s0
+#   sudo curl https://gitlab.com/cssl/NetChris/public/linux/raw/master/etc/netplan/20-enp1s0-storage.yaml -o /etc/netplan/20-enp1s0-storage.yaml
 network:
   version: 2
   renderer: networkd
