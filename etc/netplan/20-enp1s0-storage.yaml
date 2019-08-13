@@ -1,0 +1,10 @@
+# Storage network - DHCP, but lower routing preference
+# enp1s0
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp1s0:
+      dhcp4: yes
+      dhcp4-overrides:
+        route-metric: 200
