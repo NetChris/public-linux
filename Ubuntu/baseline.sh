@@ -5,8 +5,8 @@
 #  sudo apt update
 #  sudo apt upgrade
 #  sudo apt install jq
-# TEMP
-# curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | sudo bash -E
+# TEMP:
+#   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | sudo -E bash
 
 if [[ -z "$GITLAB_PAT" ]]; then
     echo "Must provide GITLAB_PAT (GitLab personal access token) in environment" 1>&2
