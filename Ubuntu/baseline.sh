@@ -34,3 +34,15 @@ echo $JSON | curl \
   -H "PRIVATE-TOKEN: ${GITLAB_PAT}" \
   -d @- \
   https://gitlab.com/api/v4/user/keys
+
+# git stuff (for Chris)
+git config --global user.email "chris.dev@netchris.com"
+git config --global user.name "Chris Simmons"
+git config --global core.editor "vi"
+
+# Pull down the Standards repo
+git clone git@gitlab.com:cssl/NetChris/Standards/linux.git \
+  ~/src/cssl/NetChris/Standards/linux
+
+# This provides the real baseline setup for an Ubuntu system
+# ~/src/cssl/NetChris/Standards/linux/Ubuntu/standard-setup.sh
