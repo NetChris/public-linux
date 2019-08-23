@@ -47,7 +47,7 @@ git clone git@gitlab.com:cssl/NetChris/Standards/linux.git \
    ~/src/standard-scripts
 
 # This provides the real baseline setup for an Ubuntu system
-cat ~/src/cssl/NetChris/Standards/linux/linux/Ubuntu/standard-setup.sh
+cat ~/src/standard-scripts/linux/Ubuntu/standard-setup.sh
 
 # TODO - Make this a script
 # # Split up ~/.bashrc into ~/.bashrc.d/
