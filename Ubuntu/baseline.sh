@@ -24,8 +24,12 @@ rm -f ~/.ssh/id_rsa
 ssh-keygen -t rsa -P "" -C "$SSH_KEY_TITLE" -f ~/.ssh/id_rsa
 SSH_KEY=`cat ~/.ssh/id_rsa.pub`
 JSON=`jq -c -n --arg title "$SSH_KEY_TITLE" --arg key "$SSH_KEY" '{title: $title, key: $key}'`
+
+echo "Uploading to GitLab:"
+
 echo $JSON | curl \
   -X POST \
+  -i \
   -H "Content-Type: application/json" \
   -H "PRIVATE-TOKEN: ${GITLAB_PAT}" \
   -d @- \
