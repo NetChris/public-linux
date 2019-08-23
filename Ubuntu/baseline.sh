@@ -7,6 +7,8 @@
 #  sudo apt install jq
 # TEMP:
 #   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | bash
+# TEMP cleanup:
+#   rm -rf ~/.ssh/ && rm -rf ~/src/ && rm -rf ~/.curlrc && rm -rf ~/.gitconfig
 
 if [[ -z "$GITLAB_PAT" ]]; then
     echo "Must provide GITLAB_PAT (GitLab personal access token) in environment" 1>&2
@@ -42,7 +44,7 @@ git config --global core.editor "vi"
 
 # Pull down the Standards repo
 git clone git@gitlab.com:cssl/NetChris/Standards/linux.git \
-  ~/src/cssl/NetChris/Standards/linux
+   ~/src/standard-scripts
 
 # This provides the real baseline setup for an Ubuntu system
 cat ~/src/cssl/NetChris/Standards/linux/linux/Ubuntu/standard-setup.sh
