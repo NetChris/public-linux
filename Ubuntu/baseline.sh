@@ -51,7 +51,7 @@ cat ~/src/cssl/NetChris/Standards/linux/linux/Ubuntu/standard-setup.sh
 # # Split up ~/.bashrc into ~/.bashrc.d/
 # mkdir ~/.bashrc.d
 # chmod 700 ~/.bashrc.d
-# mv ~/.bashrc ~/.bashrc.d/
+# mv ~/.bashrc ~/.bashrc.d/original.bashrc
 
 # cat <<EOT >> ~/.bashrc
 # for file in ~/.bashrc.d/*.bashrc;
@@ -60,3 +60,7 @@ cat ~/src/cssl/NetChris/Standards/linux/linux/Ubuntu/standard-setup.sh
 # done
 # EOT
 # chmod --reference=".bashrc.d/.bashrc" ~/.bashrc
+
+# TODO - Place a "~/.refresh.sh" file that does a full refresh of the user's home directory with:
+# ~/.bashrc.d/ contents
+# ~/src/...
