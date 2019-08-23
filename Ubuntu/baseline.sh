@@ -6,7 +6,7 @@
 #  sudo apt upgrade
 #  sudo apt install jq
 # TEMP:
-#   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | sudo -E bash
+#   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | bash
 
 if [[ -z "$GITLAB_PAT" ]]; then
     echo "Must provide GITLAB_PAT (GitLab personal access token) in environment" 1>&2
@@ -45,4 +45,18 @@ git clone git@gitlab.com:cssl/NetChris/Standards/linux.git \
   ~/src/cssl/NetChris/Standards/linux
 
 # This provides the real baseline setup for an Ubuntu system
-# ~/src/cssl/NetChris/Standards/linux/Ubuntu/standard-setup.sh
+cat ~/src/cssl/NetChris/Standards/linux/linux/Ubuntu/standard-setup.sh
+
+# TODO - Make this a script
+# # Split up ~/.bashrc into ~/.bashrc.d/
+# mkdir ~/.bashrc.d
+# chmod 700 ~/.bashrc.d
+# mv ~/.bashrc ~/.bashrc.d/
+
+# cat <<EOT >> ~/.bashrc
+# for file in ~/.bashrc.d/*.bashrc;
+# do
+# source "$file"
+# done
+# EOT
+# chmod --reference=".bashrc.d/.bashrc" ~/.bashrc
