@@ -26,7 +26,6 @@ SSH_KEY=`cat ~/.ssh/id_rsa.pub`
 JSON=`jq -c -n --arg title "$SSH_KEY_TITLE" --arg key "$SSH_KEY" '{title: $title, key: $key}'`
 echo $JSON | curl \
   -X POST \
-  -i \
   -H "Content-Type: application/json" \
   -H "PRIVATE-TOKEN: ${GITLAB_PAT}" \
   -d @- \
