@@ -5,7 +5,7 @@
 
 if [ -z "$GITLAB_USERNAME" ]
 then
-      echo "\$GITLAB_USERNAME must be defined"
+      echo "GITLAB_USERNAME envar must be defined"
       exit -1
 else
   echo Pulling the contents of https://gitlab.com/$GITLAB_USERNAME.keys to ~/.ssh/authorized_keys
