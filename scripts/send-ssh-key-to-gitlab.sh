@@ -5,7 +5,7 @@
 # - Envar GITLAB_PAT is defined and contains a valid GitLab personal access token with API scope.
 #   - Go to https://gitlab.com/profile/personal_access_tokens to create one.
 #
-#  curl -sSL GET https://gitlab.com/cssl/NetChris/public/linux/raw/master/scripts/send-ssh-key-to-gitlab.sh | bash
+#  curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/master/scripts/send-ssh-key-to-gitlab.sh | bash
 
 if [[ -z "$GITLAB_PAT" ]]; then
     echo "Must provide GITLAB_PAT (GitLab personal access token) in environment" 1>&2
