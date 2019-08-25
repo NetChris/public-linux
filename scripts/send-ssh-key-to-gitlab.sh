@@ -4,8 +4,8 @@
 # - SSH key has been generated (use generate-ssh-key.sh to (re-)generate the SSH key)
 # - Envar GITLAB_PAT is defined and contains a valid GitLab personal access token with API scope.
 #   - Go to https://gitlab.com/profile/personal_access_tokens to create one.
-# TEMP - TODO:
-#   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | bash
+#
+#  curl -sSL GET https://gitlab.com/cssl/NetChris/public/linux/raw/master/scripts/send-ssh-key-to-gitlab.sh | bash
 
 if [[ -z "$GITLAB_PAT" ]]; then
     echo "Must provide GITLAB_PAT (GitLab personal access token) in environment" 1>&2
