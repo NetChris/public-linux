@@ -3,6 +3,11 @@
 # This is necessary for those systems (like RPi) which keep vi compatibility, especially with a "vim.tiny" installation.
 # Run this normally.
 # If you are a sudoer, run it as sudo as well to ensure root gets the setting.
+#
+# TODO - switch to master once released:
+#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/bash/scripts/vim-set-nocompatible.sh | bash -s
+#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/bash/scripts/vim-set-nocompatible.sh | sudo -E bash -s
+#   
 
 VIM_CONFIG=.vimrc
 USER_HOME=`getent passwd $USER | cut -d: -f6`
