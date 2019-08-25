@@ -1,7 +1,7 @@
 #!/bin/bash
 # Places the keys for a given GitLab username in ~/.ssh/authorized_keys
 # Execute this with:
-# curl -sSL https://gitlab.com/NetChris/public/linux/raw/master/bash/scripts/get-gitlab-keys.sh | bash -s
+# curl -sSL https://gitlab.com/NetChris/public/linux/raw/master/scripts/get-gitlab-keys.sh | bash -s
 
 if [ -z "$GITLAB_USERNAME" ]
 then

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Allows the current user to sudo without a password
 # Execute this with:
-# curl -sSL https://gitlab.com/NetChris/public/linux/raw/master/bash/scripts/allow-user-sudoers-nopassword.sh | bash -s
+# curl -sSL https://gitlab.com/NetChris/public/linux/raw/master/scripts/allow-user-sudoers-nopassword.sh | bash -s
 
 # Configure to allow $USER to sudo without password
 export SUDOERS_NO_PASSWORD=/etc/sudoers.d/$USER

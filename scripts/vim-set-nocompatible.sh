@@ -6,8 +6,8 @@
 #
 # TODO - Use the new Linux configuration repo for this.  Scripting is dumb!
 # TODO - switch to master once released:
-#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/bash/scripts/vim-set-nocompatible.sh | bash -s
-#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/bash/scripts/vim-set-nocompatible.sh | sudo -E bash -s
+#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/scripts/vim-set-nocompatible.sh | bash -s
+#   curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/scripts/vim-set-nocompatible.sh | sudo -E bash -s
 #   
 
 VIM_CONFIG=.vimrc

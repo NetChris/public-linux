@@ -7,7 +7,7 @@
 # sudo setup-lv-fsmount.sh docker01 vg02 200G
 #
 # To run from curl (WATCH THE ARGUMENTS!):
-# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/bash/scripts/setup-lv-fsmount.sh' | sudo bash -s -- fs_mount_name volume_group_name size_in_123G_format
+# curl -sSL 'https://gitlab.com/NetChris/public/linux/raw/master/scripts/setup-lv-fsmount.sh' | sudo bash -s -- fs_mount_name volume_group_name size_in_123G_format
 
 die () {
     echo >&2 "$@"
