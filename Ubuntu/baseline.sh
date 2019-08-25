@@ -5,7 +5,7 @@
 #  sudo apt update
 #  sudo apt upgrade
 #  sudo apt install jq
-# TEMP:
+# TEMP - TODO:
 #   curl -X GET https://gitlab.com/cssl/NetChris/public/linux/raw/UbuntuBaseline/Ubuntu/baseline.sh | bash
 # TEMP cleanup:
 #   rm -rf ~/.ssh/ && rm -rf ~/src/ && rm -rf ~/.curlrc && rm -rf ~/.gitconfig
