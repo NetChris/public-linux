@@ -15,13 +15,12 @@ fi
 
 if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
     echo "You must generate an RSA key first. (i.e. the file ~/.ssh/id_rsa.pub must exist.)" 1>&2
-    echo "See generate-ssh-key.sh in the same folder as this script." 1>&2
+    echo "See re-generate-ssh-key.sh in the same folder as this script. Or simply:" 1>&2
+    echo "  curl -sSL https://gitlab.com/cssl/NetChris/public/linux/raw/master/scripts/re-generate-ssh-key.sh | bash" 1>&2
     exit 1
 fi
 
 SSH_KEY_TITLE="$USER@$HOSTNAME (`date +%s`)"
-rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-ssh-keygen -t rsa -P "" -C "$SSH_KEY_TITLE" -f ~/.ssh/id_rsa
 SSH_KEY=`cat ~/.ssh/id_rsa.pub`
 JSON=`jq -c -n --arg title "$SSH_KEY_TITLE" --arg key "$SSH_KEY" '{title: $title, key: $key}'`
 
