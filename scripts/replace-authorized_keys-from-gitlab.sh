@@ -21,4 +21,4 @@ if ! [[ -f ~/.ssh/authorized_keys ]]; then
   chmod 644 ~/.ssh/authorized_keys
 fi
 
-curl https://gitlab.com/$GITLAB_USERNAME.keys -w "\n" >> ~/.ssh/authorized_keys
+curl https://gitlab.com/$GITLAB_USERNAME.keys -w "\n" > ~/.ssh/authorized_keys
