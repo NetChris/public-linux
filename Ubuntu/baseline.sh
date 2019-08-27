@@ -17,31 +17,6 @@ fi
 
 # TODO - ensure no swap
 
-# We want curl to output endline after running
-echo '-w "\n"' >> ~/.curlrc
-
-# Generate an SSH key and send to GitLab
-SSH_KEY_TITLE="$USER@$HOSTNAME (`date +%s`)"
-rm -f ~/.ssh/id_rsa
-ssh-keygen -t rsa -P "" -C "$SSH_KEY_TITLE" -f ~/.ssh/id_rsa
-SSH_KEY=`cat ~/.ssh/id_rsa.pub`
-JSON=`jq -c -n --arg title "$SSH_KEY_TITLE" --arg key "$SSH_KEY" '{title: $title, key: $key}'`
-
-echo "Uploading to GitLab:"
-
-echo $JSON | curl \
-  -X POST \
-  -i \
-  -H "Content-Type: application/json" \
-  -H "PRIVATE-TOKEN: ${GITLAB_PAT}" \
-  -d @- \
-  https://gitlab.com/api/v4/user/keys
-
-# git stuff (for Chris)
-git config --global user.email "chris.dev@netchris.com"
-git config --global user.name "Chris Simmons"
-git config --global core.editor "vi"
-
 # Pull down the Standards repo
 git clone git@gitlab.com:cssl/NetChris/Standards/linux.git \
    ~/src/standard-scripts
